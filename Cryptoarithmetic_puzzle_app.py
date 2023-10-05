@@ -1,7 +1,8 @@
 from simpleai.search import CspProblem, backtrack
 import streamlit as st
 
-#input_str = input("Enter a CryptoArithmetic puzzle in the format 'TO + GO = OUT':").upper()
+# Adding a title and input box using streamlit
+st.title('CryptoArithmetic puzzle calculator')
 input_str = st.text_input("Enter a CryptoArithmetic puzzle in the format 'TO + GO = OUT':").upper()
 # Initialize the domain and seen set
 domains = {}
@@ -79,5 +80,5 @@ constraints = [
 problem = CspProblem(variables, domains, constraints)
 
 output = backtrack(problem)
-#print('\nSolutions:', output)
-st.write('\nSolutions:', output)
+
+st.text(f"Solutions: %s" % output)
